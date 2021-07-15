@@ -17,7 +17,7 @@ jobs:
       # Full list of parameters: https://github.com/RasaHQ/action-server-gha/tree/main#input-arguments
       with:
         actions_directory: 'actions'
-        requirements_file: 'actions/requirements-actions.txt'
+        requirements_file: 'actions/requirements.txt'
         docker_image_name: 'hddt/rasax-action-server'
         docker_registry_login: ${{ secrets.DOCKER_HUB_LOGIN }}
         docker_registry_password: ${{ secrets.DOCKER_HUB_PASSWORD }}
