@@ -1,0 +1,76 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- inform
+- affirm
+- greet
+- goodbye
+- deny
+- thankyou
+- not_match
+- out_of_scope
+
+entities:
+- dino_name
+
+slots:
+  dino_name:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+
+responses:
+  utter_greet:
+  - text: Hello! Welcome to Dino_Brief! Are you interested in knowing of any dino now?
+  utter_goodbye:
+  - text: Bye. See you next time :)
+  utter_ask_dino_form_dino_name:
+  - text: Please give me the name of dino you're interested to know !
+  utter_slots_values:
+  - text: 'Hier is the brief info about: {dino_name}'
+  utter_wrong_dino_name:
+  - text: "I can't find that name in the database. I think that it's mis-spelled."
+  utter_check_dino_name:
+  - text: "Please check your input! It doesn't look like a dino name."
+  utter_thankyou+continue:
+  - text: "You're welcome! Do you want to continue?"
+  - text: "My pleasure! Are you interested in another dino?"
+  - text: "Nice to hear that! Do you want to know about another dino?"
+  utter_deny:
+  - text: "Oh, it's a pity! Just wanna talk more with you!"
+  - text: "Ending already? We have just started the conversation!"
+  utter_not_match:
+  - text: "Ok, so you can double-check it and tell me the right one."
+  utter_out_of_scope:
+  - text: "Sorry, I can't handle that request. I am not trained for that."
+  utter_please_rephrase:
+  - text: "I'm sorry. I can't get that. Could you please rephrase?\n
+  Make sure it tell me a right dino name."
+  utter_default:
+  - text: "I'm sorry. I can't help you."
+
+actions:
+- utter_goodbye
+- utter_greet
+- utter_ask_dino_form_dino_name
+- utter_slots_values
+- validate_dino_form
+- action_ask_dino_form_dino_name
+- utter_wrong_dino_name
+- utter_check_dino_name
+- action_brief_dino
+- utter_thankyou+continue
+- utter_deny
+- utter_not_match
+- utter_please_rephrase
+- utter_default
+
+forms:
+  dino_form:
+    required_slots:
+      dino_name:
+      - type: from_entity
+        entity: dino_name
+        intent: [affirm, inform]
