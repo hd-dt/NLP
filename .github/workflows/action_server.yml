@@ -2,9 +2,7 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'actions/**'
-
+    
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -18,6 +16,7 @@ jobs:
       uses: RasaHQ/action-server-gha@main
       # Full list of parameters: https://github.com/RasaHQ/action-server-gha/tree/main#input-arguments
       with:
+        actions_directory: 'actions'
         requirements_file: 'actions/requirements-actions.txt'
         docker_image_name: 'hddt/rasax-action-server'
         docker_registry_login: ${{ secrets.DOCKER_HUB_LOGIN }}
