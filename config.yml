@@ -8,19 +8,24 @@ pipeline:
 # # See https://rasa.com/docs/rasa/tuning-your-model for more information.
   - name: WhitespaceTokenizer
   - name: RegexFeaturizer
-  - name: CRFEntityExtractor
-#   - name: LexicalSyntacticFeaturizer
+    alias: "regex"
+    case_sensitive: False
+#  - name: CRFEntityExtractor
+  - name: LexicalSyntacticFeaturizer
+  - name: LanguageModelFeaturizer
   - name: CountVectorsFeaturizer
+    alias: "cvf-word"
   - name: CountVectorsFeaturizer
+    alias: "cvf-char"
     analyzer: char_wb
     min_ngram: 1
     max_ngram: 4
   - name: DIETClassifier
-    epochs: 300
+    epochs: 100
     constrain_similarities: True
-    entity_recognition: False
   - name: EntitySynonymMapper
   - name: ResponseSelector
+    featurizers: ["cvf-word"]
     epochs: 100
     constrain_similarities: True
   - name: FallbackClassifier

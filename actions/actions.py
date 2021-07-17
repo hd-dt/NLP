@@ -39,6 +39,8 @@ class ValidateDinoForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
+        print(tracker.latest_message)
+        #print(tracker.events[-3:])
 
         lower_dino_names = self.dino_names_db()
 
@@ -49,7 +51,7 @@ class ValidateDinoForm(FormValidationAction):
             test_name = slot_value.lower()
             match_dino_ls = ""
             match_ratio_ls = process.extractBests(test_name, lower_dino_names, limit=3, score_cutoff=75)
-            print(match_ratio_ls)
+            #print(match_ratio_ls)
             if len(match_ratio_ls) >0:
                 buttons = []
                 for dino in match_ratio_ls:
@@ -99,11 +101,22 @@ class ActionBriefDino(Action):
         soup = BeautifulSoup(page.content, "html.parser")
         text = "Quick facts about "
         facts_list = soup.find_all(lambda tag: tag.name == "p" and text in tag.text)
-        response_text = ""
-        for fact in facts_list:
-            for f in fact.find_all("li"):
-                response_text = response_text + "- " + f.text +"\n"
+        response_text = "Here is the brief info of " + dino_name.capitalize() +": \n"
+        if len(facts_list) > 0:
+            for fact in facts_list:
+                for f in fact.find_all("li"):
+                    response_text = response_text + "- " + f.text +"\n"
+        else:
+            text = dino_name.capitalize() + " was a "
+            short_descr = soup.find(lambda tag: tag.name == "p" and text in tag.text)
+            response_text = response_text + short_descr.text
+        img_link = soup.find("img", {'title': dino_name})
         dispatcher.utter_message(text=response_text)
+        try:
+            img_src = img_link['data-src']
+        except:
+            img_src = img_link['src']
+        dispatcher.utter_message(image = img_src)
         return [AllSlotsReset()]
 # class ActionHelloWorld(Action):
 #

@@ -18,7 +18,7 @@ entities:
 slots:
   dino_name:
     type: text
-    auto_fill: false
+    auto_fill: true
     influence_conversation: false
 
 responses:
@@ -40,13 +40,13 @@ responses:
   - text: "Nice to hear that! Do you want to know about another dino?"
   utter_deny:
   - text: "Oh, it's a pity! Just wanna talk more with you!"
-  - text: "Ending already? We have just started the conversation!"
+  - text: "Oh no...you have to leave already? We have just started the conversation!"
   utter_not_match:
   - text: "Ok, so you can double-check it and tell me the right one."
   utter_out_of_scope:
   - text: "Sorry, I can't handle that request. I am not trained for that."
   utter_please_rephrase:
-  - text: "I'm sorry. I can't get that. Could you please rephrase?\n
+  - text: "I'm sorry. I can't get that. Could you please check your input?\n
   Make sure it tell me a right dino name."
   utter_default:
   - text: "I'm sorry. I can't help you."
@@ -73,4 +73,4 @@ forms:
       dino_name:
       - type: from_entity
         entity: dino_name
-        intent: [affirm, inform]
+        #intent: [affirm, inform]
