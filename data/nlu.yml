@@ -85,6 +85,8 @@ nlu:
     - it is great
     - it's great
     - great
+    - fantastic
+    - interesting
 
 - intent: not_match
   examples: |

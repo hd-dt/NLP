@@ -12,7 +12,7 @@ pipeline:
     case_sensitive: False
 #  - name: CRFEntityExtractor
   - name: LexicalSyntacticFeaturizer
-  - name: LanguageModelFeaturizer
+#  - name: LanguageModelFeaturizer
   - name: CountVectorsFeaturizer
     alias: "cvf-word"
   - name: CountVectorsFeaturizer
