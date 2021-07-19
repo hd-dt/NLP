@@ -16,6 +16,8 @@ nlu:
     - goodevening
     - good afternoon
     - Hi
+    - Hei
+    - Hallo
 - intent: goodbye
   examples: |
     - cu
@@ -46,7 +48,9 @@ nlu:
     - why not?
     - sure
     - definitely
-
+    - Sure
+    - Yes
+    - definietly
 - intent: deny
   examples: |
     - no
@@ -80,7 +84,33 @@ nlu:
     - I am curious of [T Rex](dino_name)
     - Like [Iguanodon](dino_name)?
     - I wonder if there's a dinosaur called [Texasetes](dino_name)
-
+    - how about Ichthyo?
+    - do you know Ichthyo?
+    - [Diplodon](dino_name)
+    - Do you know [Iguana](dino_name)
+    - [elasmosaurus](dino_name)
+    - [Diplodocus](dino_name)
+    - [diplodocus](dino_name)
+    - I am curious of [Hypsilophodon](dino_name)
+    - [Inosaurus](dino_name)
+    - I am curious of [Hesperony](dino_name)
+    - [Guanlong](dino_name)
+    - I am curious of [Moros](dino_name)
+    - [Heterodontosaurus](dino_name)
+    - [T-Rex](dino_name)
+    - [juravenator](dino_name)
+    - [Ischyrosaurus](dino_name)
+    - I am curious of [gyposaurus](dino_name)
+    - [ignavusaurus](dino_name)
+    - [Mosasaurus](dino_name)
+    - Do you know [hudiesaurus](dino_name)?
+    - Do you know [Heterodontoaurus](dino_name)
+    - [Ichthyovenator](dino_name)
+    - Do you know anything of [Ichthyovenator](dino_name)?
+    - Ichthyovena
+    - Ichthyo
+    - do you know [ichthyovenator](dino_name)
+    - How about [T-Rex](dino_name)
 - intent: thankyou
   examples: |
     - thanks
@@ -92,13 +122,14 @@ nlu:
     - great
     - fantastic
     - interesting
-
+    - thanks anyway
+    - Thanks anyway
+    - Thank you
 - intent: not_match
   examples: |
     - I am not sure if any of them is right
     - it should be another name
     - I'll try to figure it out
-
 - intent: out_of_scope
   examples: |
     - Can you sing?
@@ -122,7 +153,6 @@ nlu:
     - T-Rex
     - t-rex
     - t rex
-
 - lookup: dino_name
   examples: |
     - aachenosaurus
