@@ -28,6 +28,8 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - see you
+    - see you next time
 - intent: affirm
   examples: |
     - yes
@@ -60,6 +62,9 @@ nlu:
     - not right now
     - maybe later
     - not now
+    - no thanks
+    - not interested
+    - please no
 
 - intent: inform
   examples: |
@@ -97,11 +102,19 @@ nlu:
 - intent: out_of_scope
   examples: |
     - Can you sing?
-    - I am bored, entertain me
     - Can you cook?
     - What are you interested in?
     - I wanna talk about love.
     - Why don't you play a film?
+
+- intent: complain
+  examples: |
+    - I am bored, entertain me
+    - It's boring. I know all of that.
+    - So boring
+    - Bored...
+    - Bored
+    - Boring
 
 - synonym: Tyrannosaurus
   examples: |

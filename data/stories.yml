@@ -18,24 +18,19 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-# - story: happy path from inform
-#   steps:
-#   - intent: inform
-#   - action: dino_form
-#   - active_loop: dino_form
-#   - action: utter_slots_values
-#   - action: action_brief_dino
-#   - intent: thankyou
-#   - action: utter_thankyou+continue
-#   - intent: affirm
-#   - action: dino_form
-#   - active_loop: dino_form
-#   - action: utter_slots_values
-#   - action: action_brief_dino
-#   - intent: thankyou
-#   - action: utter_thankyou+continue
-#   - intent: goodbye
-#   - action: utter_goodbye
+- story: happy path from complain
+  steps:
+  - intent: complain
+  - action: utter_complain
+  - intent: inform
+  - action: dino_form
+  - active_loop: dino_form
+#  - action: utter_slots_values
+  - action: action_brief_dino
+  - intent: thankyou
+  - action: utter_thankyou+continue
+  - intent: goodbye
+  - action: utter_goodbye
 
 - story: sad path
   steps:

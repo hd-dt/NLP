@@ -11,6 +11,7 @@ intents:
 - thankyou
 - not_match
 - out_of_scope
+- complain
 
 entities:
 - dino_name
@@ -23,7 +24,10 @@ slots:
 
 responses:
   utter_greet:
-  - text: Hello! Welcome to Dino_Brief! Are you interested in knowing of any dino now?
+  - text: "Hello! Welcome to Dino_Brief!\n
+  I am eager to tell you about what many paleontologists have found of\n
+  thousand different dino species.\n
+  Are you interested in knowing of any specific dino now?"
   utter_goodbye:
   - text: Bye. See you next time :)
   utter_ask_dino_form_dino_name:
@@ -40,16 +44,25 @@ responses:
   - text: "Nice to hear that! Do you want to know about another dino?"
   utter_deny:
   - text: "Oh, it's a pity! Just wanna talk more with you!"
+  - text: "Oh really? I wanna bring you more interesting things."
   - text: "Oh no...you have to leave already? We have just started the conversation!"
   utter_not_match:
   - text: "Ok, so you can double-check it and tell me the right one."
   utter_out_of_scope:
-  - text: "Sorry, I can't handle that request. I am not trained for that."
+  - text: "Sorry, I can't handle that request now. I'm not trained for that.\n
+  Maybe the next time I will be ready to handle it."
   utter_please_rephrase:
   - text: "I'm sorry. I can't get that. Could you please check your input?\n
   Make sure it tell me a right dino name."
   utter_default:
   - text: "I'm sorry. I can't help you."
+  utter_complain:
+  - text: "Oh, no. I'm sure that there are still many interesting thing for you to explore with me.\n
+  Maybe these names can inspire you e.g. Unescoceratops or Penelopognathus or Xiongguanlong.\n
+  You can try with one name above."
+  - text: "Dinosaur World is really interesting. You can try with me to know more about them. \n
+  Maybe these will bring some surprise for you: Willinakaqe or Ornithostoma or Micropachycephalosaurus.\n
+  Try one. Tell me an interesting dino name."
 
 actions:
 - utter_goodbye
